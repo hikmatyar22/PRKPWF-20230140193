@@ -62,7 +62,7 @@
     <div class="card">
         <div class="nama">Hikmatyar Alghifary</div>
         <div class="nim">20230140193</div>
-        <a href="#" class="button">Modul Pertemuan 1</a>
+        <a href="https://github.com/code-worker-me/PWF-Genap-2025/blob/main/pertemuan-1.md" class="button">Modul Pertemuan 1</a>
     </div>
 </body>
 
