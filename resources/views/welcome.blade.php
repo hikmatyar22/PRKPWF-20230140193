@@ -55,14 +55,49 @@
         .button:hover {
             background-color: #ffffff;
         }
+
+        .auth-nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .auth-link {
+            color: #a1a09a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .auth-link:hover {
+            color: #eeeeec;
+        }
     </style>
 </head>
 
 <body>
+    @if (Route::has('login'))
+        <div class="auth-nav">
+            @auth
+                <a href="{{ url('/dashboard') }}" class="auth-link">Dashboard</a>
+            @else
+                <a href="{{ route('login') }}" class="auth-link">Log in</a>
+
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="auth-link">Register</a>
+                @endif
+            @endauth
+        </div>
+    @endif
+
     <div class="card">
         <div class="nama">Hikmatyar Alghifary</div>
         <div class="nim">20230140193</div>
-        <a href="https://github.com/code-worker-me/PWF-Genap-2025/blob/main/pertemuan-1.md" class="button">Modul Pertemuan 1</a>
+        <a href="https://github.com/code-worker-me/PWF-Genap-2025/blob/main/pertemuan-1.md" class="button">Modul
+            Pertemuan 1</a>
     </div>
 </body>
 
