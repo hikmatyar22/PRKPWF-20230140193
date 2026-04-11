@@ -56,11 +56,8 @@ User tanpa hak akses admin/owner tidak akan melihat tombol aksi pada daftar prod
 
 ### 5. Fitur Tambah & Edit Produk
 Antarmuka untuk mengelola data produk.
-````carousel
 ![Tambah Produk](Dokumentasi/Tambah%20Produk.jpeg)
-<!-- slide -->
 ![Edit Produk](Dokumentasi/Edit%20Produk.jpeg)
-````
 
 ---
 
