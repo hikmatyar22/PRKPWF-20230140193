@@ -17,7 +17,36 @@ class ProductController extends Controller
 
     public function export()
     {
-        return "Fitur export hanya bisa diakses oleh Admin.";
+        $products = Product::with('user')->get();
+        $fileName = 'products_export_' . date('Y-m-d_H-i-s') . '.csv';
+
+        $headers = [
+            "Content-type"        => "text/csv",
+            "Content-Disposition" => "attachment; filename=$fileName",
+            "Pragma"              => "no-cache",
+            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"             => "0"
+        ];
+
+        $callback = function () use ($products) {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, ['ID', 'Product Name', 'Quantity', 'Price (Rp)', 'Owner', 'Created At']);
+
+            foreach ($products as $product) {
+                fputcsv($file, [
+                    $product->id,
+                    $product->name,
+                    $product->quantity,
+                    $product->price,
+                    $product->user->name ?? 'Unknown',
+                    $product->created_at->format('Y-m-d H:i:s')
+                ]);
+            }
+
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200, $headers);
     }
 
     public function store(Request $request)
