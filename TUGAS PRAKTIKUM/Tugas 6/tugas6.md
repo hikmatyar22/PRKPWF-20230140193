@@ -36,15 +36,15 @@ Berikut adalah hasil uji coba fitur validasi yang telah diimplementasikan:
 
 ### 1. Uji Coba Halaman Tambah Produk
 Validasi berhasil menangkap masukan yang tidak sesuai dan menampilkan pesan error dalam Bahasa Indonesia.
-![Pesan Error Add Produk](dokumentasi/PESAN_ERROR_ADD_PRODUK.jpeg)
+![Pesan Error Add Produk](Dokumentasi/PESAN_ERROR_ADD_PRODUK.jpeg)
 
 ### 2. Uji Coba Halaman Edit Produk
 Implementasi Form Request (`UpdateProductRequest`) memberikan respon yang sama baiknya saat pengeditan data gagal.
-![Pesan Error Edit Produk](dokumentasi/PESAN_ERROR_EDIT_PRODUK.jpeg)
+![Pesan Error Edit Produk](Dokumentasi/PESAN_ERROR_EDIT_PRODUK.jpeg)
 
 ### 3. Notifikasi Berhasil (Success State)
 Tampilan ketika seluruh aturan validasi terpenuhi dan data berhasil disimpan ke database.
-![Pesan Sukses Tambah Produk](dokumentasi/PESAN_SUKSES_TAMBAH_PRODUK.jpeg)
+![Pesan Sukses Tambah Produk](Dokumentasi/PESAN_SUKSES_TAMBAH_PRODUK.jpeg)
 
 ---
 
