@@ -23,7 +23,7 @@
                 </div>
 
                 {{-- Form --}}
-                <form action="{{ route('product.update', $product->id) }}" method="POST">
+                <form action="{{ route('product.update', $product->id) }}" method="POST" novalidate>
                     @csrf
                     @method('PUT')
                     

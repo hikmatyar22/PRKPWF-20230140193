@@ -23,7 +23,7 @@
                 </div>
 
                 {{-- Form --}}
-                <form action="{{ route('product.store') }}" method="POST">
+                <form action="{{ route('product.store') }}" method="POST" novalidate>
                     @csrf
                     
                     {{-- Name --}}
