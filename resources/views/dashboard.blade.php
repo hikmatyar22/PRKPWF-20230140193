@@ -11,6 +11,10 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100 text-center py-12">
                     <h2 class="text-3xl font-bold mb-4">You're logged in!</h2>
                     <p class="text-gray-500 text-lg">Selamat datang kembali, <span class="text-indigo-500 font-bold">{{ Auth::user()->name }}</span>.</p>
+
+                    <div class="mt-4 p-4 bg-gray-800/50 rounded-lg inline-block">
+                        <p class="text-sm font-medium">Role: <span class="text-indigo-400 capitalize">{{ Auth::user()->role }}</span></p>
+                    </div>
                     
                     <div class="mt-10 flex justify-center gap-4">
                         <a href="{{ route('product.index') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg transition duration-200">

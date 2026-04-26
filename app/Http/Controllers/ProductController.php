@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Database\QueryException;
@@ -57,6 +58,7 @@ class ProductController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
+            'category_id' => 'required|exists:category,id',
             'quantity' => 'required|integer',
             'price' => 'required|numeric',
         ], [
@@ -102,8 +104,9 @@ class ProductController extends Controller
     public function create()
     {
         $users = User::orderBy('name')->get();
+        $categories = Category::orderBy('name')->get();
 
-        return view('product.create', compact('users'));
+        return view('product.create', compact('users', 'categories'));
     }
 
     public function show($id)
@@ -153,8 +156,9 @@ class ProductController extends Controller
         \Illuminate\Support\Facades\Gate::authorize('update', $product);
 
         $users = User::orderBy('name')->get();
+        $categories = Category::orderBy('name')->get();
 
-        return view('product.edit', compact('product', 'users'));
+        return view('product.edit', compact('product', 'users', 'categories'));
     }
 
     public function delete(Product $product)

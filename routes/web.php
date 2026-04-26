@@ -3,6 +3,7 @@
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,6 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/product/update/{product}', [ProductController::class, 'update'])->name('product.update');
     Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
     Route::delete('/product/delete/{product}', [ProductController::class, 'delete'])->name('product.delete');
+
+    // Category Page
+    Route::resource('category', CategoryController::class);
 });
 
 require __DIR__ . '/auth.php';
