@@ -21,6 +21,7 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
+            'category_id' => 'required|exists:category,id',
             'quantity' => 'required|integer',
             'price' => 'required|numeric',
         ];
@@ -34,6 +35,9 @@ class StoreProductRequest extends FormRequest
         return [
             'name.required' => 'Nama produk wajib diisi.',
             'name.max' => 'Nama produk tidak boleh lebih dari 255 karakter.',
+
+            'category_id.required' => 'Kategori produk wajib dipilih.',
+            'category_id.exists' => 'Kategori yang dipilih tidak valid.',
 
             'quantity.required' => 'Jumlah (kuantitas) produk wajib diisi.',
             'quantity.integer' => 'Jumlah produk harus berupa angka bulat (tidak boleh desimal).',
